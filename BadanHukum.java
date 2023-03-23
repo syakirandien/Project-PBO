@@ -9,7 +9,6 @@ package javaapplication11;
  * @author ASUS
  */
 
-import java.util.InputMismatchException;
 public class BadanHukum {
     int kode;
     String nama;

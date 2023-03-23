@@ -1,9 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package javaapplication11;
+
+/**
+ *
+ * @author ASUS
+ */
 public class Keaktifan {
     private String key;
     private String value;
 
-    public Keaktifan(String key) {
+    public Keaktifan(String key) throws Exception {
+        if (Integer.parseInt(key) >= 10 | Integer.parseInt(key) < 0){
+            throw new Exception ("");
+        }
         this.key = key;
+        this.value = getValue();
     }
     
     public String getKey() {
@@ -11,7 +25,6 @@ public class Keaktifan {
     }
 
     public String getValue() {
-        try{
             switch(key){
                 case "1" -> {
                     value = ("Aktif");
@@ -40,17 +53,20 @@ public class Keaktifan {
                 case "9" -> {
                     value = ("Ganda");
                 }
+                
+                default -> {
+                    value = ("");
+                }
             } 
-        } catch (Exception e){
-            System.out.println("Type mismatch");
-        }
         return value;
     }
 
     
     @Override
     public String toString() {
-        return "Keaktifan{" + "key=" + key + ", value=" + value + '}';
+        return "\n<Keterangan Keaktifan>" + 
+                "\nKey\t: " + key + 
+                "\nValue\t: " + value;
     }
     
 }

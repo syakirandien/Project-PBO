@@ -1,7 +1,3 @@
-package mform.entity;
-import java.util.HashMap;
-
-
 public class Company {
     // Properties
     private KIP kip; //KIP : Kode Identitas Perusahaan

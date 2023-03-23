@@ -1,3 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package javaapplication11;
+
+/**
+ *
+ * @author ASUS
+ */
+
+import java.util.InputMismatchException;
 public class BadanHukum {
     int kode;
     String nama;
@@ -5,16 +17,12 @@ public class BadanHukum {
     public BadanHukum() {
     }
     
-    public BadanHukum(int kode, String nama) throws Exception {
-        if (String.valueOf(kode).matches("[^0-9]")) {
-            throw new Exception("Error : Kode harus berupa angka");
+    public BadanHukum(int kode) throws Exception {
+        if (kode > 10 | kode < 0) {
+            throw new Exception("");
         } else {
             this.kode = kode;
-            if (nama.matches("[^a-z|^A-Z|^ ]")) {
-                throw new Exception("Error : Kode harus berupa angka");
-            } else {
-                this.nama = nama;
-            }
+            this.nama = getNama();
         }
     }
 
@@ -22,8 +30,7 @@ public class BadanHukum {
         return kode;
     }
 
-    public String getNama() throws Exception {
-        try{
+    public String getNama(){
             switch (kode){
                 case 1 ->{
                     nama = ("Perusahaan Negara(PN)");
@@ -44,7 +51,7 @@ public class BadanHukum {
                     nama = ("Naamloze Vennootschap(NV)");
                 }
                 case 7 ->{
-                    nama = ("7. Commanditaire Venootschap (CV)");
+                    nama = ("Commanditaire Venootschap (CV)");
                 }
                 case 8 ->{
                     nama = ("Firma");
@@ -55,17 +62,18 @@ public class BadanHukum {
                 case 10 ->{
                     nama = ("Yayasan");
                 }
+
+                default -> {
+                    nama = "Key Tidak Ditemukan";
+                }
             }
-        } catch (Exception e){
-            System.out.println("Type mismatch");
-            throw new Exception("Key tidak valid");
-        }
+            
         return nama;
     }
 
     @Override
     public String toString() {
-        return "BadanHukum{" + "kode=" + kode + ", nama=" + nama + '}';
+        return "\n<Keterangan Badan Hukum>" + "\nKode: " + kode + "\nNama: " + nama;
     }
 
 }

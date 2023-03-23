@@ -1,3 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package javaapplication11;
+
+/**
+ *
+ * @author ASUS
+ */
 public class KIP {
     private String kodeProv;
     private String kodeKab;
@@ -5,24 +15,28 @@ public class KIP {
     private String KJU;
     private String noUrutKab;
 
-    public KIP(String kodeProv, String kodeKab, String kodeKec, String KJU, String noUrutKab) throws Exception{
-        if((kodeProv.length()==2)& (kodeProv.compareTo("00")>0) &(kodeProv.compareTo("35")<0)&(kodeProv.matches("[0-9]+")==true)){
+    public KIP(String kodeProv, String kodeKab, String kodeKec, String KJU, String noUrutKab) throws Exception {
+        if((Integer.parseInt(kodeProv) > 0) &&(Integer.parseInt(kodeProv) < 39)&&(kodeProv.matches("^[0-9]+")==true)){
             this.kodeProv=kodeProv;
             if (kodeKab.matches("[^0-9]")) {
-                throw new Exception("Error : Kode harus berupa angka");
-            } else {
+                throw new Exception("");
+            } 
+            else {
                 this.kodeKab = kodeKab;
                 if (kodeKec.matches("[^0-9]")) {
-                    throw new Exception("Error : Kode harus berupa angka");
-                } else {
+                    throw new Exception("");
+                } 
+                else {
                     this.kodeKec = kodeKec;
                     if (KJU.matches("[^0-9]")) {
-                        throw new Exception("Error : Kode harus berupa angka");
-                    } else {
+                        throw new Exception("");
+                    } 
+                    else {
                         this.KJU = KJU;
                         if (noUrutKab.matches("[^0-9]")) {
-                            throw new Exception("Error : Kode harus berupa angka");
-                        } else {
+                            throw new Exception("");
+                        } 
+                        else {
                             this.noUrutKab = noUrutKab;
                         }
                     }
@@ -30,9 +44,9 @@ public class KIP {
             }
         }
         else{
-            throw new Exception("Kode Provinsi terdiri dari 2 digit angka antara 1 - 34");
+            throw new Exception("");
         }
-       
+   
     }
 
     public KIP() {
@@ -80,7 +94,12 @@ public class KIP {
 
     @Override
     public String toString() {
-        return "KIP{" + "kodeProv=" + kodeProv + ", kodeKab=" + kodeKab + ", kodeKec=" + kodeKec + ", KJU=" + KJU + ", noUrutKab=" + noUrutKab + '}';
+        return "\n<Keterangan Kode Identitas Perusahaan>" + 
+                "\nKode Provinsi\t: " + kodeProv + 
+                "\nKode Kabupaten\t: " + kodeKab + 
+                "\nKode Kecamatan\t: " + kodeKec + 
+                "\nKJU\t\t: " + KJU + 
+                "\nNoUrutKab\t: " + noUrutKab;
     }
     
     

@@ -71,8 +71,8 @@ public class CompanyForm extends Form {
     }
 
     @Override
-    public boolean isTrue(int x){
-        
+    public boolean validate(){
+        return true;
     }
     /*public boolean validate() {
         //Validasi objek company tersedia
